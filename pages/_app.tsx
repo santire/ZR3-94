@@ -17,6 +17,8 @@ export default function App(props: AppProps) {
         withNormalizeCSS
         theme={{
           /** Put your mantine theme override here */
+          black: '#0A0A0A',
+          white: '#FDFDFD',
           colorScheme: 'dark',
           fontFamily: 'Eurostile, sans-serif',
           headings: {
@@ -25,17 +27,25 @@ export default function App(props: AppProps) {
         }}
       >
         <Global
-          styles={[
-            {
-              '@font-face': {
-                fontFamily: 'Eurostile',
-                src: `url('./fonts/Eurostile.woff2') format("woff2")`,
-                fontWeight: 400,
-                fontStyle: 'normal',
-                fontSize: 18
-              },
+          styles={(theme) => ({
+            '*, *::before, *::after': {
+              boxSizing: 'border-box',
             },
-          ]}
+
+            body: {
+              ...theme.fn.fontStyles(),
+              backgroundColor: theme.colorScheme === 'dark' ? theme.black : theme.white,
+              color: theme.colorScheme === 'dark' ? theme.white : theme.black,
+              lineHeight: theme.lineHeight,
+            },
+            '@font-face': {
+              fontFamily: 'Eurostile',
+              src: `url('./fonts/Eurostile.woff2') format("woff2")`,
+              fontWeight: 400,
+              fontStyle: 'normal',
+              fontSize: 18,
+            },
+          })}
         />
         <Component {...pageProps} />
       </MantineProvider>
