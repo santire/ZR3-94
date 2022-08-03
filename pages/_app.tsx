@@ -8,8 +8,9 @@ export default function App(props: AppProps) {
   return (
     <>
       <Head>
-        <title>ZR394</title>
+        <title>ZR3-94</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
 
       <MantineProvider
