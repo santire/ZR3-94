@@ -15,7 +15,7 @@ export function Welcome() {
             <br />
             DE ANOMALÍAS TRASCENDENTALES
           </Title>
-          <Text align="justify" size={24} mx="auto" mt="xl" mb="5em">
+          <Text align="justify" size={24} mx="auto" mt="xl" mb="2em">
             Somos Investigadores de Anomalías Trascendentales (I.A.T), una agrupación integrada por
             investigadores desertores de grandes y confidenciales estudios sobre avances
             tecnológicos. Nuestro objetivo es advertir a la humanidad sobre ZR3-94 y dar cuenta de
@@ -23,13 +23,14 @@ export function Welcome() {
             desarrollo del mismo) y que los gobiernos de mayor poder, encabezados por los Estados
             Unidos, quieren mantener ocultos.
           </Text>
+        </Container>
+      </div>
+
           <Link href="/home" passHref>
             <Anchor className={classes.link} component="a">
               <Text align="center">Accedé a toda la información</Text>
             </Anchor>
           </Link>
-        </Container>
-      </div>
     </div>
   );
 }

@@ -3,8 +3,9 @@ import { createStyles } from '@mantine/core';
 export default createStyles((_) => ({
   container: {
     display: 'flex',
+    flexDirection: 'column',
     maxWidth: 1400,
-    width: '75%',
+    width: '80%',
     margin: '10% auto 0 auto',
   },
   content: {
@@ -12,8 +13,8 @@ export default createStyles((_) => ({
     margin: '0 auto',
   },
   link: {
-    fontSize: 20,
-    letterSpacing: 10,
+    fontSize: 22,
+    letterSpacing: 8,
     color: 'yellowgreen',
   },
 }));
