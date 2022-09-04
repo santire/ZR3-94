@@ -36,6 +36,7 @@ export default function App(props: AppProps) {
             body: {
               ...theme.fn.fontStyles(),
               backgroundColor: theme.colorScheme === 'dark' ? theme.black : theme.white,
+              backgroundImage: "url('/assets/background.svg')",
               color: theme.colorScheme === 'dark' ? theme.white : theme.black,
               lineHeight: theme.lineHeight,
             },
