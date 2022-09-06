@@ -8,7 +8,7 @@ export function Header() {
   const { classes } = useStyles();
 
   return (
-    <MantineHeader className={classes.header} height={128} mb={120}>
+    <MantineHeader className={classes.header} height={128} mb={52}>
       <Container size={1280}>
         <div className={classes.inner}>
           <Brand />

@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { Header } from "../Header/Header";
+import { Navigation } from "../Navigation/Navigation";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -16,6 +17,7 @@ export default function Layout({ children, meta }: LayoutProps) {
       </Head>
       <main>
         <Header />
+        <Navigation />
         {children}
       </main>
 
