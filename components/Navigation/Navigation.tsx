@@ -3,7 +3,7 @@ import { LinkButton } from "./LinkButton/LinkButton";
 
 export function Navigation() {
   return (
-    <div style={{ margin: '0 52px' }}>
+    <div style={{ margin: '0 auto', maxWidth: 1280 }}>
       <Grid>
         <Grid.Col span={4}>
           <Grid align='center'>
