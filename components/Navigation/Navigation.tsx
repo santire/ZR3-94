@@ -8,25 +8,37 @@ export function Navigation() {
         <Grid.Col span={4}>
           <Grid align='center'>
             <Grid.Col span={6}>
-              <LinkButton title="¿QUÉ ES EL ZR3-94?" path="/home" />
-              <LinkButton title="DOCUMENTOS CLASIFICADOS" path="/documents" />
+              <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <LinkButton title="¿QUÉ ES EL ZR3-94?" path="/home" />
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <LinkButton title="DOCUMENTOS CLASIFICADOS" path="/documents" />
+              </div>
             </Grid.Col>
             <Grid.Col span={6}>
-              <LinkButton title="EFECTOS EN LA TIERRA" path="/effects" />
+              <div style={{ display: 'flex', justifyContent: 'left' }}>
+                <LinkButton title="EFECTOS EN LA TIERRA" path="/effects" />
+              </div>
             </Grid.Col>
           </Grid>
         </Grid.Col>
         <Grid.Col span={4}>
-          <Image src="/assets/zr394.gif"  radius={300}/>
+          <Image src="/assets/zr394.gif" radius={9000} />
         </Grid.Col>
         <Grid.Col span={4}>
           <Grid align='center'>
             <Grid.Col span={6}>
-              <LinkButton title="ZR3-94 Y OVNIS" path="/ufos" />
+              <div style={{ display: 'flex', justifyContent: 'right' }}>
+                <LinkButton title="ZR3-94 Y OVNIS" path="/ufos" />
+              </div>
             </Grid.Col>
             <Grid.Col span={6}>
-              <LinkButton title="TESTIMONIOS" path="/testimonials" />
-              <LinkButton title="ACCESO AL ZR3-94" path="/access" />
+              <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <LinkButton title="TESTIMONIOS" path="/testimonials" />
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <LinkButton title="ACCESO AL ZR3-94" path="/access" />
+              </div>
             </Grid.Col>
           </Grid>
         </Grid.Col>
