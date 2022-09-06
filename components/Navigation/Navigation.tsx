@@ -1,4 +1,4 @@
-import { Grid } from "@mantine/core";
+import { Grid, Image } from "@mantine/core";
 import { LinkButton } from "./LinkButton/LinkButton";
 
 export function Navigation() {
@@ -16,7 +16,9 @@ export function Navigation() {
             </Grid.Col>
           </Grid>
         </Grid.Col>
-        <Grid.Col span={4}></Grid.Col>
+        <Grid.Col span={4}>
+          <Image src="/assets/zr394.gif"  radius={300}/>
+        </Grid.Col>
         <Grid.Col span={4}>
           <Grid align='center'>
             <Grid.Col span={6}>
