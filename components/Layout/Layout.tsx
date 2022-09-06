@@ -15,7 +15,7 @@ export default function Layout({ children, meta }: LayoutProps) {
         <meta name="description" content={description} />
         <link rel="icon" href={icon || "favicon.ico"} />
       </Head>
-      <main>
+      <main style={{ maxWidth: 1280, margin: '0 auto' }}>
         <Header />
         <Navigation />
         {children}
