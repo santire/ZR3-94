@@ -1,4 +1,4 @@
-import { Box, Grid, Text, Image, Stack, Group } from '@mantine/core';
+import { Box, Grid, Text, Image, Stack } from '@mantine/core';
 import Layout from '../components/Layout/Layout';
 import { Person } from '../components/Person/Person';
 import { SectionTitle } from '../components/SectionTitle/SectionTitle';

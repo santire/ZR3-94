@@ -7,9 +7,10 @@ import useStyles from './LinkButton.styles';
 interface LinkButtonProps {
   title: string;
   path: string;
+  locked?: boolean;
 }
 
-export function LinkButton({ title, path }: LinkButtonProps) {
+export function LinkButton({ title, path, locked }: LinkButtonProps) {
   const { classes } = useStyles();
   const router = useRouter();
   const [selected, setSelected] = useState(false);
@@ -18,7 +19,7 @@ export function LinkButton({ title, path }: LinkButtonProps) {
   }, [router, setSelected]);
 
   return (
-    <Link href={path}>
+    <Link href={path} passHref>
       <div>
         <div className={classes.container}>
           <Center>
@@ -27,7 +28,7 @@ export function LinkButton({ title, path }: LinkButtonProps) {
         </div>
         <div
           className={classes.arrowContainer}
-          style={{ backgroundColor: selected ? '#C800FA' : '#6D59C9' }}
+          style={{ backgroundColor: locked ? '#69BAC6' : selected ? '#C800FA' : '#6D59C9' }}
         >
           <Center>
             <Image style={{ position: 'relative', top: 4 }} src="/assets/arrow.svg" />
