@@ -1,12 +1,12 @@
-import { Grid, Image } from "@mantine/core";
-import { LinkButton } from "./LinkButton/LinkButton";
+import { Grid, Image } from '@mantine/core';
+import { LinkButton } from './LinkButton/LinkButton';
 
 export function Navigation() {
   return (
     <div style={{ margin: '0 auto', maxWidth: 1280 }}>
       <Grid>
         <Grid.Col span={4}>
-          <Grid align='center'>
+          <Grid align="center">
             <Grid.Col span={6}>
               <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <LinkButton title="¿QUÉ ES EL ZR3-94?" path="/home" />
@@ -26,7 +26,7 @@ export function Navigation() {
           <Image src="/assets/zr394.gif" radius={9000} />
         </Grid.Col>
         <Grid.Col span={4}>
-          <Grid align='center'>
+          <Grid align="center">
             <Grid.Col span={6}>
               <div style={{ display: 'flex', justifyContent: 'right' }}>
                 <LinkButton title="ZR3-94 Y OVNIS" path="/ufos" />
@@ -44,5 +44,5 @@ export function Navigation() {
         </Grid.Col>
       </Grid>
     </div>
-  )
+  );
 }

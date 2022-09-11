@@ -9,12 +9,12 @@ export default createStyles((theme) => ({
     border: `1px solid ${theme.white}`,
     borderRadius: 65,
     cursor: 'pointer',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   text: {
     textTransform: 'uppercase',
     fontSize: 20,
-    textAlign: 'center'
+    textAlign: 'center',
   },
   arrowContainer: {
     display: 'flex',

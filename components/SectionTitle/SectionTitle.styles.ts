@@ -1,4 +1,4 @@
-import { createStyles } from "@mantine/core";
+import { createStyles } from '@mantine/core';
 
 export default createStyles((theme) => ({
   title: {
@@ -6,12 +6,12 @@ export default createStyles((theme) => ({
     textAlign: 'left',
     borderBottom: `1px solid ${theme.white}`,
     lineHeight: '0.1em',
-    margin: "10px 0 20px",
+    margin: '10px 0 20px',
 
     span: {
       background: theme.black,
       backgroundImage: "url('/assets/background.svg')",
-      padding: "0 20px"
-    }
-  }
-}))
+      padding: '0 20px',
+    },
+  },
+}));

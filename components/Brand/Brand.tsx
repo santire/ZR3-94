@@ -6,7 +6,7 @@ export function Brand() {
   return (
     <Group spacing="xs">
       <Image src="/assets/logo_bw.svg" />
-      <p className={classes.title}>INVESTIGADORES DE {<br />}ANOMALÍAS TRASCENDENTALES</p>
+      <p className={classes.title}>INVESTIGADORES DE <br />ANOMALÍAS TRASCENDENTALES</p>
     </Group>
   );
 }

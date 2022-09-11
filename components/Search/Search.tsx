@@ -6,8 +6,9 @@ export function Search() {
 
   useEffect(() => {
     if (value === 'aleph')
-      window.location.href = 'https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxiaWJsaWJyb3NwZGZ8Z3g6NWUyOTU3NzQxYmM3NWM1Yg'
-  }, [value])
+      window.location.href =
+        'https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxiaWJsaWJyb3NwZGZ8Z3g6NWUyOTU3NzQxYmM3NWM1Yg';
+  }, [value]);
 
   return (
     <Autocomplete
@@ -20,7 +21,7 @@ export function Search() {
       height={40}
       data={['no', 'hay', 'nada', 'todavia']}
       styles={{
-        input: { background: '#D9D9D9', minWidth: 324, color: "black" },
+        input: { background: '#D9D9D9', minWidth: 324, color: 'black' },
       }}
     />
   );
