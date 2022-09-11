@@ -1,5 +1,6 @@
 import { Text, Group, Anchor, Center, Divider, Box } from '@mantine/core';
 import Link from 'next/link';
+import { Fragment } from 'react';
 import useStyles from './Footer.styles';
 
 interface CustomLinkProps {
@@ -36,11 +37,11 @@ export function Footer() {
           </Text>
           <Group>
             {links.map((p, i) => (
-              <>
-                {i === 0 ? <div key={`pre${p.value}`}>|</div> : null}
-                <CustomLink key={`${p.value}`} {...p} />
-                <div key={`post${p.value}`}>|</div>
-              </>
+              <Fragment key={p.value}>
+                {i === 0 ? <div>|</div> : null}
+                <CustomLink {...p} />
+                <div>|</div>
+              </Fragment>
             ))}
           </Group>
           <Divider orientation="vertical" color="#F5F5F5" />
