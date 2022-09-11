@@ -18,23 +18,33 @@ export function LinkButton({ title, path, locked }: LinkButtonProps) {
     setSelected(router.pathname === path);
   }, [router, setSelected]);
 
-  return (
-    <Link href={path} passHref>
-      <div>
-        <div className={classes.container}>
-          <Center>
-            <p className={classes.text}>{selected ? <strong>{title}</strong> : title}</p>
-          </Center>
-        </div>
-        <div
-          className={classes.arrowContainer}
-          style={{ backgroundColor: locked ? '#69BAC6' : selected ? '#C800FA' : '#6D59C9' }}
-        >
-          <Center>
-            <Image style={{ position: 'relative', top: 4 }} src="/assets/arrow.svg" />
-          </Center>
-        </div>
+  const content = (
+    <div style={locked ? {} : { cursor: 'pointer' }}>
+      <div className={classes.container}>
+        <Center>
+          <p className={classes.text}>{selected ? <strong>{title}</strong> : title}</p>
+        </Center>
       </div>
-    </Link>
+      <div
+        className={classes.arrowContainer}
+        style={{ backgroundColor: locked ? '#69BAC6' : selected ? '#C800FA' : '#6D59C9' }}
+      >
+        <Center>
+          <Image style={{ position: 'relative', top: 4 }} src="/assets/arrow.svg" />
+        </Center>
+      </div>
+    </div>
+  );
+
+  return (
+    <>
+      {locked ? (
+        content
+      ) : (
+        <Link href={path} passHref>
+          {content}
+        </Link>
+      )}
+    </>
   );
 }
