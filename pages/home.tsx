@@ -105,11 +105,6 @@ export default function HomePage() {
               </Box>
             </Grid.Col>
           </Grid>
-          <Group>
-            <div>hola1</div>
-            <div>hola2</div>
-            <div>hola2</div>
-          </Group>
         </Box>
         <Box mt={100} mb={100}>
           <Box mb={100}>
