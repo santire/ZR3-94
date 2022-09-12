@@ -1,4 +1,4 @@
-import { Box, Grid, Text, Image, Stack } from '@mantine/core';
+import { Box, Grid, Text, Image, Stack, Group } from '@mantine/core';
 import Layout from '../components/Layout/Layout';
 import { Person } from '../components/Person/Person';
 import { SectionTitle } from '../components/SectionTitle/SectionTitle';
@@ -105,6 +105,11 @@ export default function HomePage() {
               </Box>
             </Grid.Col>
           </Grid>
+          <Group>
+            <div>hola1</div>
+            <div>hola2</div>
+            <div>hola2</div>
+          </Group>
         </Box>
         <Box mt={100} mb={100}>
           <Box mb={100}>
