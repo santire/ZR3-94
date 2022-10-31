@@ -1,7 +1,9 @@
 import { Box, Grid, Image, List, Text } from '@mantine/core';
 import { IconMapPin } from '@tabler/icons';
 import Layout from '../components/Layout/Layout';
+import { Anomaly } from '../components/Anomaly/Anomaly';
 import { SectionTitle } from '../components/SectionTitle/SectionTitle';
+import anomalies from '../components/Anomaly/Anomalies';
 
 export default function HomePage() {
   const places = [
@@ -60,6 +62,35 @@ export default function HomePage() {
                     </List.Item>
                   ))}
                 </List>
+              </Grid.Col>
+            </Grid>
+          </Box>
+        </Box>
+        <Box mt={100} mb={100}>
+          <Box mb={100}>
+            <SectionTitle title="LUGARES AFECTADOS" />
+          </Box>
+          <Box>
+            <Grid justify="center" gutter={40}>
+              <Grid.Col span={4}>
+                <Anomaly {...anomalies.fosa_de_las_marianas}>
+                  <Text size={18} align="justify" style={{ maxWidth: 338, margin: '0 auto' }}>
+                    Es una depresión del fondo marino que se encuentra en el océano Pacífico
+                    occidental y es el área más honda de los océanos terrestres. Su máxima
+                    profundidad llega a los 10.994 metros. Sin embargo, durante los últimos años
+                    estas fosas se vieron alteradas por el ZR3-94 y su punto de mayor profundidad es
+                    aún más acentuado de lo que se dice, llegando éste a los 11.482 metros.
+                  </Text>
+                </Anomaly>
+                <h1>anomalia4</h1>
+              </Grid.Col>
+              <Grid.Col span={4}>
+                <h1>anomalia2</h1>
+                <h1>anomalia5</h1>
+              </Grid.Col>
+              <Grid.Col span={4}>
+                <h1>anomalia3</h1>
+                <h1>anomalia6</h1>
               </Grid.Col>
             </Grid>
           </Box>
