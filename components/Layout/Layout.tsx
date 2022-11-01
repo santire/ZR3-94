@@ -1,4 +1,6 @@
 import Head from 'next/head';
+import { useEffect } from 'react';
+import { useScrollIntoView } from '@mantine/hooks';
 import { Header } from '../Header/Header';
 import { Footer } from '../Footer/Footer';
 import { Navigation } from '../Navigation/Navigation';
@@ -9,6 +11,13 @@ interface LayoutProps {
 }
 export default function Layout({ children, meta }: LayoutProps) {
   const { title, description, icon } = meta;
+  const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({ offset: 60 });
+  useEffect(() => {
+    if (localStorage.getItem('scrollInto') === 'true') {
+      scrollIntoView();
+      localStorage.removeItem('scrollInto')
+    }
+  }, []);
   return (
     <>
       <Head>
@@ -19,7 +28,7 @@ export default function Layout({ children, meta }: LayoutProps) {
       <main style={{ maxWidth: 1280, margin: '0 auto' }}>
         <Header />
         <Navigation />
-        {children}
+        <div ref={targetRef}>{children}</div>
         <Footer />
       </main>
     </>

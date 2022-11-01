@@ -19,7 +19,10 @@ export function LinkButton({ title, path, locked }: LinkButtonProps) {
   }, [router, setSelected]);
 
   const content = (
-    <div style={locked ? {} : { cursor: 'pointer' }}>
+    <div
+      style={locked ? {} : { cursor: 'pointer' }}
+      onClick={() => localStorage.setItem('scrollInto', 'true')}
+    >
       <div className={classes.container}>
         <Center>
           <p className={classes.text}>{selected ? <strong>{title}</strong> : title}</p>
