@@ -1,6 +1,7 @@
-import { Container, Group, Image, List, Text } from '@mantine/core';
+import { Anchor, Container, Group, Image, List, Text } from '@mantine/core';
 import { IconMapPin } from '@tabler/icons';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import useStyles from './Anomaly.styles';
 
 const ReactPlayer = dynamic(() => import('react-player'), { ssr: false });
@@ -44,17 +45,35 @@ export function Anomaly({ children, ...meta }: AnomalyProps) {
       />
     </div>
   );
-  return (
-    <Container className={classes.container}>
-      {inverted ? (
-        <>
-          {Video} <div className={classes.separator} /> {Card}
-        </>
-      ) : (
-        <>
-          {Card} <div className={classes.separator} /> {Video}
-        </>
-      )}
+
+  const VideoLink = (
+    <Container ml="xl" mt="sm" mb="sm">
+      <Text size={16} transform="uppercase">
+        Ver anomalía:
+        <br />
+        <Link href={videoUrl} passHref>
+          <Anchor component="a" className={classes.text}>
+            {title.split('/')[0]}
+          </Anchor>
+        </Link>
+      </Text>
     </Container>
+  );
+  return (
+    <>
+      {inverted ? VideoLink : null}
+      <Container className={classes.container}>
+        {inverted ? (
+          <>
+            {Video} <div className={classes.separator} /> {Card}
+          </>
+        ) : (
+          <>
+            {Card} <div className={classes.separator} /> {Video}
+          </>
+        )}
+      </Container>
+      {!inverted ? VideoLink : null}
+    </>
   );
 }

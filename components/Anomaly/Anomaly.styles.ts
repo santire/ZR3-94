@@ -36,4 +36,8 @@ export default createStyles((theme) => ({
     alignItems: 'center',
     flexDirection: 'column',
   },
+  text: {
+    color: '#C800FA',
+    transform: 'uppercase',
+  },
 }));
