@@ -19,10 +19,7 @@ export function LinkButton({ title, path, locked }: LinkButtonProps) {
   }, [router, setSelected]);
 
   const content = (
-    <div
-      style={locked ? {} : { cursor: 'pointer' }}
-      onClick={() => localStorage.setItem('scrollInto', 'true')}
-    >
+    <div style={locked ? {} : { cursor: 'pointer' }}>
       <div className={classes.container}>
         <Center>
           <p className={classes.text}>{selected ? <strong>{title}</strong> : title}</p>
@@ -44,7 +41,8 @@ export function LinkButton({ title, path, locked }: LinkButtonProps) {
       {locked ? (
         content
       ) : (
-        <Link href={path} passHref>
+        /* <Link href={`${path}/?scroll=true`} passHref> */
+        <Link href={{ pathname: path, query: { scroll: true } }} passHref>
           {content}
         </Link>
       )}
