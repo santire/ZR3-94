@@ -9,6 +9,7 @@ export default createStyles((theme) => ({
   },
   iconImg: {
     width: 75,
+    marginLeft: 'auto',
   },
   contentCard: {
     border: `1px solid ${theme.white}`,
