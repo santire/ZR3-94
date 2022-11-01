@@ -1,10 +1,7 @@
-import { Anchor, Container, Group, Image, List, Text } from '@mantine/core';
+import { Container, Group, Image, List, Text } from '@mantine/core';
 import { IconMapPin } from '@tabler/icons';
-import dynamic from 'next/dynamic';
-import Link from 'next/link';
+import { VideoPlayer } from '../VideoPlayer/VideoPlayer';
 import useStyles from './Anomaly.styles';
-
-const ReactPlayer = dynamic(() => import('react-player'), { ssr: false });
 
 export interface AnomalyProps {
   iconImg: string;
@@ -35,45 +32,29 @@ export function Anomaly({ children, ...meta }: AnomalyProps) {
   );
 
   const Video = (
-    <div className={classes.videoWrapper}>
-      <ReactPlayer
-        url={videoUrl}
-        width="100%"
-        height="100%"
-        controls={false}
-        style={{ padding: 0, margin: 0 }}
-      />
-    </div>
+    <VideoPlayer
+      inverted={inverted}
+      linkTitle="Ver Anomalía"
+      linkText={title}
+      url={videoUrl}
+      width="100%"
+      height="100%"
+      controls={false}
+      style={{ padding: 0, margin: 0 }}
+    />
   );
 
-  const VideoLink = (
-    <Container ml="xl" mt="sm" mb="sm">
-      <Text size={16} transform="uppercase">
-        Ver anomalía:
-        <br />
-        <Link href={videoUrl} passHref>
-          <Anchor component="a" className={classes.text}>
-            {title.split('/')[0]}
-          </Anchor>
-        </Link>
-      </Text>
-    </Container>
-  );
   return (
-    <>
-      {inverted ? VideoLink : null}
-      <Container className={classes.container}>
-        {inverted ? (
-          <>
-            {Video} <div className={classes.separator} /> {Card}
-          </>
-        ) : (
-          <>
-            {Card} <div className={classes.separator} /> {Video}
-          </>
-        )}
-      </Container>
-      {!inverted ? VideoLink : null}
-    </>
+    <Container className={classes.container}>
+      {inverted ? (
+        <>
+          {Video} <div className={classes.separator} /> {Card}
+        </>
+      ) : (
+        <>
+          {Card} <div className={classes.separator} /> {Video}
+        </>
+      )}
+    </Container>
   );
 }
