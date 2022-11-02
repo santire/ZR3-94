@@ -22,7 +22,7 @@ export function LinkButton({ title, path, locked }: LinkButtonProps) {
     <div style={locked ? {} : { cursor: 'pointer' }}>
       <div className={classes.container}>
         <Center>
-          <p className={classes.text}>{selected ? <strong>{title}</strong> : title}</p>
+          <p className={selected ? classes.textSelected : classes.text}>{title}</p>
         </Center>
       </div>
       <div

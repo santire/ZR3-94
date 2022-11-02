@@ -28,8 +28,10 @@ export function VideoPlayer({ inverted, linkTitle, linkText, ...meta }: VideoPro
         <br />
         <Link href={typeof meta.url === 'string' ? meta.url : ''} passHref>
           <Anchor component="a" className={classes.text}>
-            {linkText.split("&br&").map((str) => (
-              <Text m={0}>{str}</Text>
+            {linkText.split('&br&').map((str) => (
+              <Text key={str} m={0}>
+                {str}
+              </Text>
             ))}
           </Anchor>
         </Link>

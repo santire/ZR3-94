@@ -1,10 +1,12 @@
 import { Box, Grid, Text, Image, Stack, createStyles } from '@mantine/core';
 import { Carousel } from '@mantine/carousel';
+import { useEffect } from 'react';
 import Layout from '../components/Layout/Layout';
 import { Person } from '../components/Person/Person';
 import { SectionTitle } from '../components/SectionTitle/SectionTitle';
 import investigators from '../components/Person/Investigators';
 import { VideoPlayer } from '../components/VideoPlayer/VideoPlayer';
+import { useNavStore } from '../components/store/store';
 
 const useStyles = createStyles((_theme, _params, getRef) => ({
   controls: {
@@ -24,6 +26,13 @@ const useStyles = createStyles((_theme, _params, getRef) => ({
 
 export default function HomePage() {
   const { classes } = useStyles();
+  const setVisited = useNavStore((state) => state.setVisited);
+
+  useEffect(() => {
+    setVisited('home');
+    setVisited('effects');
+  }, []);
+
   return (
     <>
       <Layout
@@ -172,7 +181,7 @@ export default function HomePage() {
               classNames={classes}
             >
               {Array.from(Array(3 * 6).keys()).map((i) => (
-                <Carousel.Slide p="xl">
+                <Carousel.Slide p="xl" key={(i % 6) + 1}>
                   <Image
                     src={`/assets/small_blueprints/${(i % 6) + 1}.png`}
                     width={128}

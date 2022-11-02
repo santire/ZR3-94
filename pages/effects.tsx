@@ -1,9 +1,11 @@
 import { Box, Grid, Image, List, Text } from '@mantine/core';
 import { IconMapPin } from '@tabler/icons';
+import { useEffect } from 'react';
 import Layout from '../components/Layout/Layout';
 import { Anomaly } from '../components/Anomaly/Anomaly';
 import { SectionTitle } from '../components/SectionTitle/SectionTitle';
 import anomalies from '../components/Anomaly/Anomalies';
+import { useNavStore } from '../components/store/store';
 
 export default function HomePage() {
   const places = [
@@ -14,6 +16,13 @@ export default function HomePage() {
     { name: 'RÍO CETINA', country: 'Croacia' },
     { name: 'KIMBERLEY BIG HOLE', country: 'Sudáfrica' },
   ];
+  const setVisited = useNavStore((state) => state.setVisited);
+
+  useEffect(() => {
+    setVisited('effects');
+    setVisited('ufos');
+  }, []);
+
   return (
     <>
       <Layout

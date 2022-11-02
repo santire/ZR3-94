@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useScrollIntoView } from '@mantine/hooks';
 import { useRouter } from 'next/router';
 import { Header } from '../Header/Header';
@@ -13,15 +13,17 @@ interface LayoutProps {
 export default function Layout({ children, meta }: LayoutProps) {
   const { title, description, icon } = meta;
   const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({ offset: 60 });
+  const [pushedRoute, setPushedRoute] = useState(false);
   const router = useRouter();
   useEffect(() => {
-    if (!router.isReady) return;
+    if (!router.isReady || pushedRoute) return;
     const { query } = router;
     if (query.scroll === 'true') {
       scrollIntoView();
       router.push(router.basePath);
+      setPushedRoute(true);
     }
-  }, [router.isReady, router.query]);
+  }, [router.isReady, router.query, pushedRoute, setPushedRoute]);
   return (
     <>
       <Head>
