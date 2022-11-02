@@ -42,7 +42,7 @@ export default function App(props: AppProps) {
             },
             '@font-face': {
               fontFamily: 'Eurostile',
-              src: `url('./fonts/Eurostile.woff2') format("woff2")`,
+              src: 'url(\'./fonts/Eurostile.woff2\') format("woff2")',
               fontWeight: 400,
               fontStyle: 'normal',
               fontSize: 18,

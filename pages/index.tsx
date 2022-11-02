@@ -2,11 +2,13 @@
 import { Anchor, Image } from '@mantine/core';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { useNavStore } from '../components/store/store';
 
 export default function LHomePageandingPage() {
   const [isDisabled, setIsDisabled] = useState(false);
   const [startTime, setStartTime] = useState(0);
   const [isTransformationEnabled, setIsTransformationEnabled] = useState(false);
+  const clearVisited = useNavStore((state) => state.clearVisited);
 
   function probability(time: number): number {
     const m = 1 / 10000;
@@ -32,6 +34,9 @@ export default function LHomePageandingPage() {
       setStartTime(new Date().getTime());
     }
   };
+  useEffect(() => {
+    clearVisited();
+  }, []);
 
   useEffect(() => {
     document.addEventListener('keydown', handleXKey, false);

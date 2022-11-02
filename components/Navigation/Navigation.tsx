@@ -1,12 +1,22 @@
 /* eslint-disable no-console */
 import { Grid, Image } from '@mantine/core';
 import { useEffect, useState } from 'react';
+import { useNavStore } from '../store/store';
 import { LinkButton } from './LinkButton/LinkButton';
 
 export function Navigation() {
   const [isTransforming, setIsTransforming] = useState(false);
   const [startTime, setStartTime] = useState(0);
   const [isTransformationEnabled, setIsTransformationEnabled] = useState(false);
+  const pages = useNavStore((state) => state.pages);
+  const [pageAccess, setPageAccess] = useState({
+    access: false,
+    home: false,
+    documents: false,
+    effects: false,
+    testimonials: false,
+    ufos: false,
+  });
 
   function probability(time: number): number {
     const m = 1 / 10000;
@@ -32,6 +42,10 @@ export function Navigation() {
       setStartTime(new Date().getTime());
     }
   };
+
+  useEffect(() => {
+    setPageAccess(pages);
+  }, [pages]);
 
   useEffect(() => {
     document.addEventListener('keydown', handleXKey, false);
@@ -77,7 +91,11 @@ export function Navigation() {
                       }
                 }
               >
-                <LinkButton title="¿QUÉ ES EL ZR3-94?" path="/home" locked={isTransforming} />
+                <LinkButton
+                  title="¿QUÉ ES EL ZR3-94?"
+                  path="/home"
+                  locked={isTransforming || !pageAccess.home}
+                />
               </div>
               <div
                 style={
@@ -96,7 +114,11 @@ export function Navigation() {
                       }
                 }
               >
-                <LinkButton title="DOCUMENTOS CLASIFICADOS" path="/documents" locked />
+                <LinkButton
+                  title="ZR3-94 Y OVNIS"
+                  path="/ufos"
+                  locked={isTransforming || !pageAccess.ufos}
+                />
               </div>
             </Grid.Col>
             <Grid.Col span={6}>
@@ -117,7 +139,11 @@ export function Navigation() {
                       }
                 }
               >
-                <LinkButton title="EFECTOS EN LA TIERRA" path="/effects" locked={isTransforming} />
+                <LinkButton
+                  title="EFECTOS EN LA TIERRA"
+                  path="/effects"
+                  locked={isTransforming || !pageAccess.effects}
+                />
               </div>
             </Grid.Col>
           </Grid>
@@ -149,7 +175,11 @@ export function Navigation() {
                       }
                 }
               >
-                <LinkButton title="ZR3-94 Y OVNIS" path="/ufos" locked />
+                <LinkButton
+                  title="DOCUMENTOS CLASIFICADOS"
+                  path="/documents"
+                  locked={isTransforming || !pageAccess.documents}
+                />
               </div>
             </Grid.Col>
             <Grid.Col span={6}>
@@ -170,7 +200,11 @@ export function Navigation() {
                       }
                 }
               >
-                <LinkButton title="TESTIMONIOS" path="/testimonials" locked />
+                <LinkButton
+                  title="TESTIMONIOS"
+                  path="/testimonials"
+                  locked={isTransforming || !pageAccess.testimonials}
+                />
               </div>
               <div
                 style={
@@ -189,7 +223,11 @@ export function Navigation() {
                       }
                 }
               >
-                <LinkButton title="ACCESO AL ZR3-94" path="/access" locked />
+                <LinkButton
+                  title="ACCESO AL ZR3-94"
+                  path="/access"
+                  locked={isTransforming || !pageAccess.access}
+                />
               </div>
             </Grid.Col>
           </Grid>

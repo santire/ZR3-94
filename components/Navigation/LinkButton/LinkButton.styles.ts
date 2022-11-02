@@ -14,6 +14,13 @@ export default createStyles((theme) => ({
     textTransform: 'uppercase',
     fontSize: 20,
     textAlign: 'center',
+    color: '#9B9B9B',
+  },
+  textSelected: {
+    textTransform: 'uppercase',
+    fontSize: 20,
+    textAlign: 'center',
+    color: '#FDFDFD',
   },
   arrowContainer: {
     display: 'flex',
