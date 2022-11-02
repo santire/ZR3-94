@@ -35,7 +35,7 @@ export function Anomaly({ children, ...meta }: AnomalyProps) {
     <VideoPlayer
       inverted={inverted}
       linkTitle="Ver Anomalía"
-      linkText={title}
+      linkText={title.split('/')[0]}
       url={videoUrl}
       width="100%"
       height="100%"

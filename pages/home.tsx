@@ -1,10 +1,29 @@
-import { Box, Grid, Text, Image, Stack, Group } from '@mantine/core';
+import { Box, Grid, Text, Image, Stack, createStyles } from '@mantine/core';
+import { Carousel } from '@mantine/carousel';
 import Layout from '../components/Layout/Layout';
 import { Person } from '../components/Person/Person';
 import { SectionTitle } from '../components/SectionTitle/SectionTitle';
 import investigators from '../components/Person/Investigators';
+import { VideoPlayer } from '../components/VideoPlayer/VideoPlayer';
+
+const useStyles = createStyles((_theme, _params, getRef) => ({
+  controls: {
+    ref: getRef('controls'),
+    transition: 'opacity 150ms ease',
+    opacity: 0,
+  },
+
+  root: {
+    '&:hover': {
+      [`& .${getRef('controls')}`]: {
+        opacity: 1,
+      },
+    },
+  },
+}));
 
 export default function HomePage() {
+  const { classes } = useStyles();
   return (
     <>
       <Layout
@@ -105,6 +124,72 @@ export default function HomePage() {
               </Box>
             </Grid.Col>
           </Grid>
+          <Grid gutter={20}>
+            <Grid.Col span={4}>
+              <VideoPlayer
+                linkText="SIMULACIÓN CREACIÓN ZR3-94"
+                url="https://www.youtube.com/watch?v=G1IbRujko-A"
+                width="100%"
+                height="226px"
+                controls={false}
+                style={{ padding: 0, margin: 0 }}
+              />
+            </Grid.Col>
+            <Grid.Col span={4}>
+              <VideoPlayer
+                /* linkText="ELEMENTO 115 &br&(THERMAL/X-RAY)" */
+                linkText="ELEMENTO 115 (THERMAL/X-RAY)"
+                url="https://www.youtube.com/watch?v=G1IbRujko-A"
+                width="100%"
+                height="226px"
+                controls={false}
+                style={{ padding: 0, margin: 0 }}
+              />
+            </Grid.Col>
+            <Grid.Col span={4}>
+              <VideoPlayer
+                linkText="REACTOR DS-3"
+                url="https://www.youtube.com/watch?v=G1IbRujko-A"
+                width="100%"
+                height="226px"
+                controls={false}
+                style={{ padding: 0, margin: 0 }}
+              />
+            </Grid.Col>
+          </Grid>
+          <Box
+            mt={100}
+            mb={100}
+            style={{ background: 'rgba(255,255,255, 0.05)', borderRadius: 50 }}
+          >
+            <Carousel
+              height="100%"
+              slideSize="16.66666666%"
+              slideGap="sm"
+              slidesToScroll={1}
+              align="start"
+              loop
+              classNames={classes}
+            >
+              {Array.from(Array(3 * 6).keys()).map((i) => (
+                <Carousel.Slide p="xl">
+                  <Image
+                    src={`/assets/small_blueprints/${(i % 6) + 1}.png`}
+                    width={128}
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                    }}
+                  />
+                </Carousel.Slide>
+              ))}
+            </Carousel>
+          </Box>
+
+          <Box mt={100} mb={100}>
+            <Image src="/assets/blueprint.png" ml={20} />
+          </Box>
         </Box>
         <Box mt={100} mb={100}>
           <Box mb={100}>

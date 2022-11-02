@@ -22,13 +22,15 @@ export function VideoPlayer({ inverted, linkTitle, linkText, ...meta }: VideoPro
   );
 
   const VideoLink = (
-    <Container ml="xl" mt="sm" mb="sm">
+    <Container ml="xl" my="sm" px="xl">
       <Text size={16} transform="uppercase">
         {linkTitle ?? 'Ver'}:
         <br />
         <Link href={typeof meta.url === 'string' ? meta.url : ''} passHref>
           <Anchor component="a" className={classes.text}>
-            {linkText.split('/')[0]}
+            {linkText.split("&br&").map((str) => (
+              <Text m={0}>{str}</Text>
+            ))}
           </Anchor>
         </Link>
       </Text>
