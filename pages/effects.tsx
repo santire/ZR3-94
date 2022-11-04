@@ -7,7 +7,7 @@ import { SectionTitle } from '../components/SectionTitle/SectionTitle';
 import anomalies from '../components/Anomaly/Anomalies';
 import { useNavStore } from '../components/store/store';
 
-export default function HomePage() {
+export default function Effects() {
   const places = [
     { name: 'ISLA DEL DELTA', country: 'Argentina' },
     { name: 'FOSA DE LAS MARIANAS', country: 'Océano Pacífico' },

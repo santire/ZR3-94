@@ -4,12 +4,22 @@ interface SectionTitleProps {
   title: string;
   fontSize?: number;
   weight?: number;
+  align?: 'left' | 'center' | 'right';
+  noLine?: boolean;
 }
 
-export function SectionTitle({ title, fontSize, weight }: SectionTitleProps) {
+export function SectionTitle({ title, fontSize, weight, align, noLine }: SectionTitleProps) {
   const { classes } = useStyles();
+  const divStyle = {
+    fontSize: fontSize ?? 24,
+    fontWeight: weight ?? 500,
+    textAlign: align ?? 'left',
+  };
   return (
-    <div className={classes.title} style={{ fontSize: fontSize ?? 24, fontWeight: weight ?? 500 }}>
+    <div
+      className={align == 'right' ? classes.titleRight : classes.title}
+      style={noLine ? { borderBottom: 'none', ...divStyle } : divStyle}
+    >
       <span>{title}</span>
     </div>
   );

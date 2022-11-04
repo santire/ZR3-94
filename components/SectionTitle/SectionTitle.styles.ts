@@ -14,4 +14,17 @@ export default createStyles((theme) => ({
       padding: '0 20px',
     },
   },
+  titleRight: {
+    width: '100%',
+    textAlign: 'right',
+    borderBottom: `1px solid ${theme.white}`,
+    lineHeight: '0.1em',
+    margin: '20px 0 10px',
+
+    span: {
+      background: theme.black,
+      backgroundImage: "url('/assets/background.svg')",
+      padding: '0 20px',
+    },
+  },
 }));
