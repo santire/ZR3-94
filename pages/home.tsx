@@ -137,7 +137,7 @@ export default function HomePage() {
             <Grid.Col span={4}>
               <VideoPlayer
                 linkText="SIMULACIÓN CREACIÓN ZR3-94"
-                url="https://www.youtube.com/watch?v=G1IbRujko-A"
+                url="https://www.youtube.com/watch?v=X00hyZNzziw"
                 width="100%"
                 height="226px"
                 controls={false}
@@ -148,7 +148,7 @@ export default function HomePage() {
               <VideoPlayer
                 /* linkText="ELEMENTO 115 &br&(THERMAL/X-RAY)" */
                 linkText="ELEMENTO 115 (THERMAL/X-RAY)"
-                url="https://www.youtube.com/watch?v=G1IbRujko-A"
+                url="https://www.youtube.com/watch?v=fXeSXYfc098"
                 width="100%"
                 height="226px"
                 controls={false}
@@ -158,7 +158,7 @@ export default function HomePage() {
             <Grid.Col span={4}>
               <VideoPlayer
                 linkText="REACTOR DS-3"
-                url="https://www.youtube.com/watch?v=G1IbRujko-A"
+                url="https://www.youtube.com/watch?v=FJhGVMX3ALo"
                 width="100%"
                 height="226px"
                 controls={false}
