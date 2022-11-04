@@ -1,4 +1,4 @@
-import { Box, Container, Grid, Image, List, Stack, Text } from '@mantine/core';
+import { Box, Grid, Image, Text } from '@mantine/core';
 import { useEffect } from 'react';
 import Layout from '../components/Layout/Layout';
 import { SectionTitle } from '../components/SectionTitle/SectionTitle';
