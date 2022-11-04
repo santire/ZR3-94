@@ -144,7 +144,7 @@ export default function Ufos() {
                 <VideoPlayer
                   linkText="ISLA DEL DELTA"
                   linkTitle="VER REGISTRO"
-                  url="https://www.youtube.com/watch?v=G1IbRujko-A"
+                  url="https://www.youtube.com/watch?v=d37cxGp4vug"
                   width="100%"
                   height="226px"
                   controls={false}
@@ -154,7 +154,7 @@ export default function Ufos() {
                 <VideoPlayer
                   linkText="DESIERTO DE ATACAMA"
                   linkTitle="VER REGISTRO"
-                  url="https://www.youtube.com/watch?v=G1IbRujko-A"
+                  url="https://www.youtube.com/watch?v=IQLJTzvawf4"
                   width="100%"
                   height="226px"
                   controls={false}
@@ -165,7 +165,7 @@ export default function Ufos() {
                 <VideoPlayer
                   linkText="CERRRO URITORCO"
                   linkTitle="VER REGISTRO"
-                  url="https://www.youtube.com/watch?v=G1IbRujko-A"
+                  url="https://www.youtube.com/watch?v=97QIq-bmJ9s"
                   width="100%"
                   height="226px"
                   controls={false}
@@ -175,7 +175,7 @@ export default function Ufos() {
                 <VideoPlayer
                   linkText="KIMBERLY BIG HOLE"
                   linkTitle="VER REGISTRO"
-                  url="https://www.youtube.com/watch?v=G1IbRujko-A"
+                  url="https://www.youtube.com/watch?v=YOrFK_6GDP4"
                   width="100%"
                   height="226px"
                   controls={false}
@@ -186,7 +186,7 @@ export default function Ufos() {
                 <VideoPlayer
                   linkText="FOSA DE LAS MARIANAS"
                   linkTitle="VER REGISTRO"
-                  url="https://www.youtube.com/watch?v=G1IbRujko-A"
+                  url="https://www.youtube.com/watch?v=yFna3h5m5W4"
                   width="100%"
                   height="226px"
                   controls={false}
@@ -196,7 +196,7 @@ export default function Ufos() {
                 <VideoPlayer
                   linkText="RIO CETINA"
                   linkTitle="VER REGISTRO"
-                  url="https://www.youtube.com/watch?v=G1IbRujko-A"
+                  url="https://www.youtube.com/watch?v=CPt2AlZ9jXI"
                   width="100%"
                   height="226px"
                   controls={false}
