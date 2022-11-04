@@ -34,7 +34,7 @@ export default function Testimonials() {
               hallazgos clasificados sobre estos viajes impensado por la humanidad.
             </Text>
           </Box>
-          <Box my={60}>
+          <Box ml={20} my={60}>
             <VideoPlayer
               linkText="NEIL"
               linkTitle="VER TESTIMONIO"
