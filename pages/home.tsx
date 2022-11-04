@@ -80,7 +80,6 @@ export default function HomePage() {
               <SectionTitle title="21 DE JUNIO DE 1994" fontSize={20} weight={400} />
               <Box ml={20} mb={50} style={{ maxWidth: '95%' }}>
                 <Text align="justify" size={20} mb="lg">
-                  {' '}
                   El 21 de junio de 1994 se originó el agujero ZR3-94 y el elemento 115 fue
                   fundamental para que esto suceda, es la razón principal de una catástrofe
                   científica ocurrida en Estados Unidos. Bajo efectos de radiación y el intento de
@@ -94,7 +93,6 @@ export default function HomePage() {
               <SectionTitle title="EXPERIMENTO FALLIDO" fontSize={20} weight={400} />
               <Box ml={20} style={{ maxWidth: '95%' }}>
                 <Text align="justify" size={20} mb="lg">
-                  {' '}
                   Esta experimentación trajo el nacimiento de un agujero negro extraordinario y, a
                   su vez, el fallecimiento de varios de los ciéntificos que la llevaron a cabo. La
                   falla producida fue analizada y se descubrió un rastro de radiación que provenía
@@ -110,7 +108,6 @@ export default function HomePage() {
               <SectionTitle title="ELEMENTO 115" fontSize={20} weight={400} />
               <Box ml={20} style={{ maxWidth: '95%' }}>
                 <Text align="justify" size={20} mb="lg">
-                  {' '}
                   El elemento 115 es la fuente de energía utilizada por las naves para viajar a una
                   velocidad indefinida por el espacio tiempo.
                 </Text>
@@ -139,20 +136,21 @@ export default function HomePage() {
                 linkText="SIMULACIÓN CREACIÓN ZR3-94"
                 url="https://www.youtube.com/watch?v=X00hyZNzziw"
                 width="100%"
-                height="226px"
+                height="234px"
                 controls={false}
                 style={{ padding: 0, margin: 0 }}
+                loop
               />
             </Grid.Col>
             <Grid.Col span={4}>
               <VideoPlayer
-                /* linkText="ELEMENTO 115 &br&(THERMAL/X-RAY)" */
                 linkText="ELEMENTO 115 (THERMAL/X-RAY)"
                 url="https://www.youtube.com/watch?v=fXeSXYfc098"
                 width="100%"
-                height="226px"
+                height="234px"
                 controls={false}
                 style={{ padding: 0, margin: 0 }}
+                loop
               />
             </Grid.Col>
             <Grid.Col span={4}>
@@ -160,9 +158,10 @@ export default function HomePage() {
                 linkText="REACTOR DS-3"
                 url="https://www.youtube.com/watch?v=FJhGVMX3ALo"
                 width="100%"
-                height="226px"
+                height="234px"
                 controls={false}
                 style={{ padding: 0, margin: 0 }}
+                loop
               />
             </Grid.Col>
           </Grid>

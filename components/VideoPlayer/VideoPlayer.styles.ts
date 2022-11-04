@@ -11,7 +11,6 @@ export default createStyles((theme) => ({
     border: `1px solid ${theme.white}`,
     borderRadius: 50,
     overflow: 'hidden',
-    width: '100%',
     padding: 0,
     margin: 0,
   },

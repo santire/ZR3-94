@@ -8,16 +8,21 @@ interface VideoProps extends ReactPlayerProps {
   linkTitle?: string;
   linkText: string;
   inverted?: boolean;
+  width?: string | number;
+  height?: string | number;
 }
 
 const ReactPlayer = dynamic(() => import('react-player'), { ssr: false });
 
-export function VideoPlayer({ inverted, linkTitle, linkText, ...meta }: VideoProps) {
+export function VideoPlayer({ inverted, linkTitle, linkText, width, height, ...meta }: VideoProps) {
   const { classes } = useStyles();
 
   const Video = (
-    <div className={classes.videoWrapper}>
-      <ReactPlayer {...meta} style={{ padding: 0, margin: 0 }} />
+    <div
+      className={classes.videoWrapper}
+      style={{ width: width ?? '100%', height: height ?? '100%' }}
+    >
+      <ReactPlayer width="100%" height="100%" {...meta} style={{ padding: 0, margin: 0 }} />
     </div>
   );
 

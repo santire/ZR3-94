@@ -1,4 +1,4 @@
-import { Box, Text, Image } from '@mantine/core';
+import { Box, Text } from '@mantine/core';
 import Layout from '../components/Layout/Layout';
 import { SectionTitle } from '../components/SectionTitle/SectionTitle';
 import { VideoPlayer } from '../components/VideoPlayer/VideoPlayer';
@@ -30,11 +30,13 @@ export default function Access() {
             <VideoPlayer
               linkText=""
               linkTitle=""
-              url="https://www.youtube.com/watch?v=G1IbRujko-A"
+              /* url="https://www.youtube.com/watch?v=eqvOE4I6QRM" */
+              url="https://www.youtube.com/watch?v=ubFq-wV3Eic"
               width="100%"
               height="604px"
               controls={false}
               style={{ padding: 0, margin: 0 }}
+              muted
             />
           </Box>
         </Box>

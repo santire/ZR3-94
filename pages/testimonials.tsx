@@ -1,4 +1,4 @@
-import { Box,  Text, Image } from '@mantine/core';
+import { Box, Text, Image } from '@mantine/core';
 import { useEffect } from 'react';
 import Layout from '../components/Layout/Layout';
 import { SectionTitle } from '../components/SectionTitle/SectionTitle';
@@ -38,11 +38,12 @@ export default function Testimonials() {
             <VideoPlayer
               linkText="NEIL"
               linkTitle="VER TESTIMONIO"
-              url="https://www.youtube.com/watch?v=G1IbRujko-A"
+              url="https://www.youtube.com/watch?v=ubFq-wV3Eic"
               width="100%"
               height="604px"
               controls={false}
               style={{ padding: 0, margin: 0 }}
+              muted
             />
           </Box>
           <Box>

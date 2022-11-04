@@ -38,7 +38,7 @@ export function Anomaly({ children, ...meta }: AnomalyProps) {
       linkText={title.split('/')[0]}
       url={videoUrl}
       width="100%"
-      height="100%"
+      height={210}
       controls={false}
       style={{ padding: 0, margin: 0 }}
     />
