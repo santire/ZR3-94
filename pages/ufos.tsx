@@ -1,9 +1,15 @@
-import { Box, Grid, Image, Text } from '@mantine/core';
-import { useEffect } from 'react';
+import { Box, Center, Container, Grid, HoverCard, Image, Paper, Text } from '@mantine/core';
+import { forwardRef, useEffect } from 'react';
 import Layout from '../components/Layout/Layout';
 import { SectionTitle } from '../components/SectionTitle/SectionTitle';
 import { useNavStore } from '../components/store/store';
 import { VideoPlayer } from '../components/VideoPlayer/VideoPlayer';
+
+interface PopupProps {
+  title: string;
+  content: string;
+  imgSrc: string;
+}
 
 export default function Ufos() {
   const setVisited = useNavStore((state) => state.setVisited);
@@ -12,6 +18,43 @@ export default function Ufos() {
     setVisited('ufos');
     setVisited('documents');
   }, []);
+
+  const popups: PopupProps[] = [
+    {
+      title: 'ELEMENTO 115',
+      content:
+        'El elemento 115 es la fuente de energía utilizada por las naves para viajar a una velocidad indefinida por el espacio tiempo.',
+      imgSrc: '/assets/elemento_115_2.png',
+    },
+    {
+      title: 'BASE ESPACIAL B26-6',
+      content:
+        'Ubicación:20.1863, 32.8704 G-ZR.\nTamaño: X metros cuadrados.\nFecha de creación: 20 de junio 2007',
+      imgSrc: '/assets/base_espacial.png',
+    },
+  ];
+
+  const PopupComponent = ({ title, content, imgSrc }: PopupProps) => (
+    <div>
+      <Paper shadow="xs" radius="lg" p="md" style={{ background: '#E8E8E8' }}>
+        <Text size={17} color="black">
+          {title}
+        </Text>
+        <Text size={17} color="black" p="xs" align="justify">
+          {content.split('\n').map((line) => (
+            <>
+              {line}
+              <br />
+            </>
+          ))}
+        </Text>
+
+        <Center>
+          <Image src={imgSrc} />
+        </Center>
+      </Paper>
+    </div>
+  );
   return (
     <>
       <Layout
@@ -21,123 +64,38 @@ export default function Ufos() {
         }}
       >
         <Box mt={100} mb={100}>
-          <Box mb={100}>
+          <Box mb={60}>
             <SectionTitle title="ZR94 y OVNIS" />
           </Box>
-          <Grid gutter={20}>
-            <Grid.Col span={4}>
-              <SectionTitle title="ROBERT SCOTT LAZAR" fontSize={20} weight={400} />
-              <Box ml={20} style={{ maxWidth: '95%' }}>
-                <Text align="justify" size={20} mb="lg">
-                  Mas conocido como “Bob Lazar”. Durante 1988 y 1989 trabajó en la base militar
-                  secreta S-4 (Área 51), situada cerca de Groom Lake y es reconocido por declarar
-                  publicamente el trabajo que realizaban allí.
-                </Text>
-              </Box>
-              <br />
-              <br />
-              <SectionTitle title="ÁREA 51" fontSize={20} weight={400} />
-              <Box ml={20} style={{ maxWidth: '95%' }}>
-                <Text align="justify" size={20} mb="lg">
-                  Es un destacamento remoto controlado por la Base Aérea de Edwards en el sur del
-                  estado de Nevada. Aunque Groom Lake no se declaró como base secreta, las
-                  investigaciones en torno al Área 51 son información clasificada como de alto
-                  secreto de los Estados Unidos.
-                </Text>
-              </Box>
-            </Grid.Col>
-            <Grid.Col span={4}>
-              <Image src="/assets/bob_lazar.png" ml={20} />
-            </Grid.Col>
-            <Grid.Col span={4}>
-              <SectionTitle title="NAVES EXTRATERRESTRES" fontSize={20} weight={400} />
-              <Box ml={20} style={{ maxWidth: '95%' }}>
-                <Text align="justify" size={20} mb="lg">
-                  El gobierno estadounidense buscaba reconstruir el funcionamiento de las naves
-                  extraterrestres recuperadas y como resultado se originó el ZR3-94. Lazar declaró
-                  que las naves estaban propulsadas por el elemento 115".
-                </Text>
-              </Box>
-              <br />
-              <br />
-              <SectionTitle title="TEORÍAS SOBRE EL ELEMENTO 115" fontSize={20} weight={400} />
-              <Box ml={20} style={{ maxWidth: '95%' }}>
-                <Text align="justify" size={20} mb="lg">
-                  Lazar afirma que el elemento 115 es la principal fuente de combustible para la
-                  nave espacial extraterrestre, mientras ciéntificos Rusos sostenían que el elemento
-                  115 se descompone en menos de un segundo, lo que lo hace incapaz de ser utilizado.
-                </Text>
-              </Box>
-            </Grid.Col>
-          </Grid>
-          <Image src="/assets/nave_recuperada.png" ml={20} my={100} />
-          <Grid gutter={20}>
-            <Grid.Col span={4} pt="lg">
-              <SectionTitle title="COMUNICADO OFICIAL DEL I.A.T" fontSize={20} weight={400} />
-              <Box ml={20} style={{ maxWidth: '95%' }}>
-                <Text align="justify" size={20} mb="lg">
-                  Se confirmó la utilización consistente por parte de EE.UU del elemento 115. El
-                  país creador del ZR3-94, estableció su base espacial B26-6 en el mismo por medio
-                  de las naves recuperadas no pertenecientes a la raza humana, permitiendo obtener
-                  un destino programado, explorable y seguro.
-                </Text>
-              </Box>
-              <br />
-              <br />
-              <SectionTitle title="DESTINO ZR3-94" fontSize={20} weight={400} />
-              <Box ml={20} style={{ maxWidth: '95%' }}>
-                <Text align="justify" size={20} mb="lg">
-                  Funciona como punto de partida a nuevos horizontes a lo largo de las galaxias,
-                  accediendo a grandes avances tecnologicos con la ayuda alienígena y a la
-                  posibilidad de utilizar al estas capacidades tecnológicas.
-                </Text>
-              </Box>
-            </Grid.Col>
-            <Grid.Col span={4}>
-              <SectionTitle
-                title="BASE ESPACIAL B26-6"
-                fontSize={24}
-                weight={400}
-                align="center"
-                noLine
-              />
-              <br />
-              <Image src="/assets/base_espacial.png" ml={20} />
-              <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <Text align="justify" color="#6D59C9" mt="md">
-                  Ubicación:20.1863, 32.8704 G-ZR.
-                  <br />
-                  Tamaño: X metros cuadrados.
-                  <br />
-                  Fecha de creación: 20 de junio 2007
-                </Text>
-              </div>
-            </Grid.Col>
-            <Grid.Col span={4} pt="lg">
-              <SectionTitle title="AGUJEROS DE GUSANOS" fontSize={20} weight={400} />
-              <Box ml={20} style={{ maxWidth: '95%' }}>
-                <Text align="justify" size={20} mb="lg">
-                  Las grandes creencias mencionan que la absorción hacia el interior de un agujero
-                  negro culmina con la materia y nada puede ser expulsado, pero se a concluido en
-                  una nueva posibilidad por medio de agujeros de gusanos ubicados en el interior del
-                  horizonte de sucesos y propios del ZR3-94.
-                </Text>
-              </Box>
-              <br />
-              <br />
-              <SectionTitle title="AGUJEROS BLANCOS" fontSize={20} weight={400} />
-              <Box ml={20} style={{ maxWidth: '95%' }}>
-                <Text align="justify" size={20} mb="lg">
-                  Los agujeros de gusanos funcionan como conexión entre la entrada y la salida del
-                  horizonte de sucesos, denominandose “Agujero Blanco” y contando con la posibilidad
-                  de la extinsión del mismo al entrar.
-                </Text>
-              </Box>
-            </Grid.Col>
-          </Grid>
-          <Box mt={100} mb={60}>
-            <SectionTitle title="REGISTRO DE OVNIS" />
+          <Box ml={20} mb={60} style={{ maxWidth: '92%', margin: '0 auto' }}>
+            <Text align="justify" size={20}>
+              Se confirmó la utilización consistente por parte de EE.UU del{' '}
+              <HoverCard width={400} position="bottom-start">
+                <HoverCard.Target>
+                  <span style={{ color: '#C800FA' }}>elemento 115</span>
+                </HoverCard.Target>
+                <HoverCard.Dropdown style={{ background: 'none', border: 0 }}>
+                  <PopupComponent {...popups[0]} />
+                </HoverCard.Dropdown>
+              </HoverCard>
+              . Estados Unidos estableció su base espacial{' '}
+              <HoverCard width={400} position="bottom-start">
+                <HoverCard.Target>
+                  <span style={{ color: '#69BAC6' }}>B26-6</span>
+                </HoverCard.Target>
+                <HoverCard.Dropdown style={{ background: 'none', border: 0 }}>
+                  <PopupComponent {...popups[1]} />
+                </HoverCard.Dropdown>
+              </HoverCard>{' '}
+              en el mismo por medio de las naves recuperadas no pertenecientes a la raza humana,
+              permitiendo obtener un destino programado, explorable y seguro. El destino ZR3-94
+              funciona como punto de partida a nuevos horizontes a lo largo de las galaxias,
+              accediendo a grandes avances tecnologicos con la ayuda alienígena y a la posibilidad
+              de utilizar al estas capacidades tecnológicas.
+            </Text>
           </Box>
+
+          <Image src="/assets/nave_recuperada.png" ml={20} my={100} />
           <Box ml={20}>
             <Grid gutter={20}>
               <Grid.Col span={4}>
@@ -208,6 +166,55 @@ export default function Ufos() {
                   style={{ padding: 0, margin: 0 }}
                   loop
                 />
+              </Grid.Col>
+            </Grid>
+          </Box>
+          <Box mt={100}>
+            <Grid gutter={20}>
+              <Grid.Col span={4}>
+                <SectionTitle title="ROBERT SCOTT LAZAR" fontSize={20} weight={400} />
+                <Box ml={20} style={{ maxWidth: '95%' }}>
+                  <Text align="justify" size={20} mb="lg">
+                    Mas conocido como “Bob Lazar”. Durante 1988 y 1989 trabajó en la base militar
+                    secreta S-4 (Área 51), situada cerca de Groom Lake y es reconocido por declarar
+                    publicamente el trabajo que realizaban allí.
+                  </Text>
+                </Box>
+                <br />
+                <br />
+                <SectionTitle title="ÁREA 51" fontSize={20} weight={400} />
+                <Box ml={20} style={{ maxWidth: '95%' }}>
+                  <Text align="justify" size={20} mb="lg">
+                    Es un destacamento remoto controlado por la Base Aérea de Edwards en el sur del
+                    estado de Nevada. Aunque Groom Lake no se declaró como base secreta, las
+                    investigaciones en torno al Área 51 son información clasificada como de alto
+                    secreto de los Estados Unidos.
+                  </Text>
+                </Box>
+              </Grid.Col>
+              <Grid.Col span={4}>
+                <Image src="/assets/bob_lazar.png" ml={20} />
+              </Grid.Col>
+              <Grid.Col span={4}>
+                <SectionTitle title="NAVES EXTRATERRESTRES" fontSize={20} weight={400} />
+                <Box ml={20} style={{ maxWidth: '95%' }}>
+                  <Text align="justify" size={20} mb="lg">
+                    El gobierno estadounidense buscaba reconstruir el funcionamiento de las naves
+                    extraterrestres recuperadas y como resultado se originó el ZR3-94. Lazar declaró
+                    que las naves estaban propulsadas por el elemento 115".
+                  </Text>
+                </Box>
+                <br />
+                <br />
+                <SectionTitle title="TEORÍAS SOBRE EL ELEMENTO 115" fontSize={20} weight={400} />
+                <Box ml={20} style={{ maxWidth: '95%' }}>
+                  <Text align="justify" size={20} mb="lg">
+                    Lazar afirma que el elemento 115 es la principal fuente de combustible para la
+                    nave espacial extraterrestre, mientras ciéntificos Rusos sostenían que el
+                    elemento 115 se descompone en menos de un segundo, lo que lo hace incapaz de ser
+                    utilizado.
+                  </Text>
+                </Box>
               </Grid.Col>
             </Grid>
           </Box>
