@@ -2,13 +2,16 @@
 import { Anchor, Image } from '@mantine/core';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { useNavStore } from '../components/store/store';
+import { useNavStore, useTransformStore } from '../components/store/store';
 
 export default function LHomePageandingPage() {
   const [isDisabled, setIsDisabled] = useState(false);
   const [startTime, setStartTime] = useState(0);
   const [isTransformationEnabled, setIsTransformationEnabled] = useState(false);
   const clearVisited = useNavStore((state) => state.clearVisited);
+  const setTransformStartTime = useTransformStore((state) => state.setStartTime);
+  const setTransformPeriod = useTransformStore((state) => state.setTransformPeriod);
+  const clearTransform = useTransformStore((state) => state.clearTransform);
 
   function probability(time: number): number {
     const m = 1 / 10000;
@@ -27,6 +30,25 @@ export default function LHomePageandingPage() {
     return willTrigger;
   }
 
+  const rand_nd = (mean: number, std: number) => {
+    const u1 = Math.random();
+    const u2 = Math.random();
+
+    const z0 = Math.sqrt(-2.0 * Math.log(u1)) * Math.cos(2.0 * Math.PI * u2);
+
+    return z0 * std + mean;
+  };
+
+  const startRandomDecay = () => {
+    setTransformStartTime(new Date().getTime());
+    const mean_minutes = 5;
+    const deviation = 1.4;
+    const decayPeriod = Math.ceil(rand_nd(mean_minutes, deviation) * 60 * 1000);
+    const decayMins = decayPeriod / (60 * 1000);
+    console.log(`decaying in: ${Math.round((decayMins + Number.EPSILON) * 100) / 100} mins`);
+    setTransformPeriod(decayPeriod);
+  };
+
   const handleXKey = (event: KeyboardEvent) => {
     if (event.key === 'x') {
       console.log('Activating transformation');
@@ -36,6 +58,7 @@ export default function LHomePageandingPage() {
   };
   useEffect(() => {
     clearVisited();
+    clearTransform();
   }, []);
 
   useEffect(() => {
@@ -46,7 +69,7 @@ export default function LHomePageandingPage() {
       const timer = setInterval(() => {
         const currentTime = new Date().getTime();
         console.log(
-          `time passed since activation: ${Math.floor((currentTime - startTime) / 1000)}s`
+          `time passed since activation: ${Math.floor((currentTime - startTime) / 1000)} s`
         );
         if (shouldTrigger(currentTime - startTime)) {
           setIsDisabled(true);
@@ -74,7 +97,7 @@ export default function LHomePageandingPage() {
       ) : (
         <Link href="/home" passHref>
           <Anchor>
-            <Image radius={1000} src="/assets/zr394.gif" />
+            <Image radius={1000} src="/assets/zr394.gif" onClick={() => startRandomDecay()} />
           </Anchor>
         </Link>
       )}

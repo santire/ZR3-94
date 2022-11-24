@@ -15,6 +15,18 @@ interface NavState {
   clearVisited: () => void;
 }
 
+interface TransformState {
+  transform: {
+    startTime: number;
+    transformPeriod: number;
+    perform: boolean;
+  };
+
+  setStartTime: (time: number) => void;
+  setTransformPeriod: (time: number) => void;
+  clearTransform: () => void;
+}
+
 export const useNavStore = create<NavState>()(
   devtools(
     persist(
@@ -47,6 +59,45 @@ export const useNavStore = create<NavState>()(
           })),
       }),
       { name: 'navStore' }
+    )
+  )
+);
+
+export const useTransformStore = create<TransformState>()(
+  devtools(
+    persist(
+      (set) => ({
+        transform: {
+          startTime: 0,
+          transformPeriod: 0,
+          perform: false,
+        },
+        setStartTime: (time) =>
+          set((state) => ({
+            transform: {
+              ...state.transform,
+              startTime: time,
+              perform: true,
+            },
+          })),
+        setTransformPeriod: (time) =>
+          set((state) => ({
+            transform: {
+              ...state.transform,
+              transformPeriod: time,
+              perform: true,
+            },
+          })),
+        clearTransform: () =>
+          set(() => ({
+            transform: {
+              startTime: 0,
+              transformPeriod: 0,
+              perform: false,
+            },
+          })),
+      }),
+      { name: 'transformStore' }
     )
   )
 );

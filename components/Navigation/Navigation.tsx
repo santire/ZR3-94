@@ -1,14 +1,14 @@
 /* eslint-disable no-console */
 import { Grid, Image } from '@mantine/core';
 import { useEffect, useState } from 'react';
-import { useNavStore } from '../store/store';
+import { useNavStore, useTransformStore } from '../store/store';
 import { LinkButton } from './LinkButton/LinkButton';
 
 export function Navigation() {
   const [isTransforming, setIsTransforming] = useState(false);
-  const [startTime, setStartTime] = useState(0);
-  const [isTransformationEnabled, setIsTransformationEnabled] = useState(false);
   const pages = useNavStore((state) => state.pages);
+  const transform = useTransformStore((state) => state.transform);
+  const setTransformPeriod = useTransformStore((state) => state.setTransformPeriod);
   const [pageAccess, setPageAccess] = useState({
     access: false,
     home: false,
@@ -18,28 +18,11 @@ export function Navigation() {
     ufos: false,
   });
 
-  function probability(time: number): number {
-    const m = 1 / 10000;
-    const y = m * time;
-
-    return y < 1 ? y : 1;
-  }
-
-  function shouldTrigger(time: number): boolean {
-    const p = probability(time);
-    const willTrigger = Math.random() <= probability(time);
-
-    console.log(`p: ${p}`);
-    console.log(`willTrigger: ${willTrigger}`);
-
-    return willTrigger;
-  }
-
   const handleXKey = (event: KeyboardEvent) => {
     if (event.key === 'x') {
       console.log('Activating transformation');
-      setIsTransformationEnabled(true);
-      setStartTime(new Date().getTime());
+      setIsTransforming(true);
+      setTransformPeriod(0);
     }
   };
 
@@ -47,26 +30,24 @@ export function Navigation() {
     setPageAccess(pages);
   }, [pages]);
 
+  //
   useEffect(() => {
     document.addEventListener('keydown', handleXKey, false);
+    const overrideTransformTimer = setInterval(() => {
+      const currentTime = new Date().getTime();
+      if (transform.perform && transform.startTime + transform.transformPeriod <= currentTime) {
+        setIsTransforming(true);
+        clearInterval(overrideTransformTimer);
+      } else if (!transform.perform) {
+        clearInterval(overrideTransformTimer);
+      }
+    }, 1000);
 
-    if (isTransformationEnabled) {
-      console.log('setting start time');
-      const timer = setInterval(() => {
-        const currentTime = new Date().getTime();
-        console.log(
-          `time passed since activation: ${Math.floor((currentTime - startTime) / 1000)}s`
-        );
-        if (shouldTrigger(currentTime - startTime)) {
-          setIsTransforming(true);
-          clearInterval(timer);
-        }
-      }, 1000);
-    }
     return () => {
       document.removeEventListener('keydown', handleXKey, false);
+      clearInterval(overrideTransformTimer);
     };
-  }, [isTransformationEnabled]);
+  }, []);
 
   return (
     <div style={{ margin: '0 auto', maxWidth: 1280 }}>
