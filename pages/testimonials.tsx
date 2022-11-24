@@ -1,4 +1,4 @@
-import { Box, Text, Image } from '@mantine/core';
+import { Box, Image, Text } from '@mantine/core';
 import { useEffect } from 'react';
 import Layout from '../components/Layout/Layout';
 import { SectionTitle } from '../components/SectionTitle/SectionTitle';
@@ -25,7 +25,7 @@ export default function Testimonials() {
             <SectionTitle title="TESTIMONIO" />
           </Box>
 
-          <Box ml={20} mb={60} style={{ maxWidth: '95%' }}>
+          <Box ml={20} mb={60} style={{ maxWidth: '92%', margin: '0 auto' }}>
             <Text align="justify" size={20}>
               El siguiente testimonio fue grabado con el consenso del propio entrevistado,
               resguardado y supervisado por la I.A.T. Por pedido propio, el protagonista pidió ser
@@ -38,7 +38,7 @@ export default function Testimonials() {
             <VideoPlayer
               linkText="NEIL"
               linkTitle="VER TESTIMONIO"
-              url="https://www.youtube.com/watch?v=ubFq-wV3Eic"
+              url="https://www.youtube.com/watch?v=PcfO1t7xAPo"
               width="100%"
               height="604px"
               controls={false}

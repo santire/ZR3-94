@@ -96,7 +96,7 @@ export default function Effects() {
                 <VideoPlayer
                   linkTitle="SONIDO"
                   linkText="ZR3-94 EN FOSA DE LAS MARIANAS"
-                  url="https://www.youtube.com/watch?v=X00hyZNzziw"
+                  url="https://www.youtube.com/shorts/rDGK-mnRX3M"
                   width="100%"
                   height="192px"
                   controls={false}
@@ -108,7 +108,7 @@ export default function Effects() {
                 <VideoPlayer
                   linkTitle="SONIDO"
                   linkText="ZR3-94 EN OJO DEL DELTA"
-                  url="https://www.youtube.com/watch?v=X00hyZNzziw"
+                  url="https://www.youtube.com/shorts/uNKPPPFU7MI"
                   width="100%"
                   height="192px"
                   controls={false}
@@ -120,7 +120,7 @@ export default function Effects() {
                 <VideoPlayer
                   linkTitle="SONIDO"
                   linkText="ZR3-94 EN DESIERTO DE ATACAMA"
-                  url="https://www.youtube.com/watch?v=X00hyZNzziw"
+                  url="https://www.youtube.com/shorts/B85jwIVZVUQ"
                   width="100%"
                   height="192px"
                   controls={false}
@@ -132,7 +132,7 @@ export default function Effects() {
                 <VideoPlayer
                   linkTitle="SONIDO"
                   linkText="ZR3-94 EN CERRO URITORCO"
-                  url="https://www.youtube.com/watch?v=X00hyZNzziw"
+                  url="https://www.youtube.com/shorts/nHgrTodYBdY"
                   width="100%"
                   height="192px"
                   controls={false}
@@ -144,7 +144,7 @@ export default function Effects() {
                 <VideoPlayer
                   linkTitle="SONIDO"
                   linkText="ZR3-94 EN RÍO CETINA"
-                  url="https://www.youtube.com/watch?v=X00hyZNzziw"
+                  url="https://www.youtube.com/shorts/OTTcQ6AQgR0"
                   width="100%"
                   height="192px"
                   controls={false}
@@ -156,7 +156,7 @@ export default function Effects() {
                 <VideoPlayer
                   linkTitle="SONIDO"
                   linkText="ZR3-94 EN KIMBERLY BIG HOLE"
-                  url="https://www.youtube.com/watch?v=X00hyZNzziw"
+                  url="https://www.youtube.com/shorts/YAg55iHUBTk"
                   width="100%"
                   height="192px"
                   controls={false}

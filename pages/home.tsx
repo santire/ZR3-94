@@ -1,6 +1,6 @@
 import { Carousel } from '@mantine/carousel';
-import { Box, createStyles, Grid, Image, Modal, Paper, Text } from '@mantine/core';
-import { useEffect, useState } from 'react';
+import { Box, createStyles, Grid, Image, Paper, Popover, Text } from '@mantine/core';
+import { useEffect } from 'react';
 import Layout from '../components/Layout/Layout';
 import investigators from '../components/Person/Investigators';
 import { Person } from '../components/Person/Person';
@@ -27,7 +27,6 @@ const useStyles = createStyles((_theme, _params, getRef) => ({
 export default function HomePage() {
   const { classes } = useStyles();
   const setVisited = useNavStore((state) => state.setVisited);
-  const [opened, setOpened] = useState(false);
 
   useEffect(() => {
     setVisited('home');
@@ -36,25 +35,6 @@ export default function HomePage() {
 
   return (
     <>
-      <Modal
-        opened={opened}
-        onClose={() => setOpened(false)}
-        withCloseButton={false}
-        centered
-        padding={0}
-      >
-        <Paper shadow="xs" radius="lg" p="lg" style={{ background: '#E8E8E8' }}>
-          <Text size="sm" color="black">
-            El 21 de junio de 1994 se originó el agujero ZR3-94 y el elemento 115 fue fundamental
-            para que esto suceda, es la razón principal de una catástrofe científica ocurrida en
-            Estados Unidos. Bajo efectos de radiación y el intento de descomposición atómica del
-            elemento, una colisión de partículas generó una fusión con los diversos materiales de
-            prueba, produciendo un colapso de la materia a nivel cuántico sobre un nivel de espacio
-            infinitésimo, generando una fuente de masa gravitatoria posterior, una desestabilización
-            subatómica que afectaría a los allí presentes.
-          </Text>
-        </Paper>
-      </Modal>
       <Layout
         meta={{
           title: '¿QUÉ ES EL ZR3-94?',
@@ -67,16 +47,34 @@ export default function HomePage() {
           </Box>
           <div style={{ position: 'relative' }}>
             <Image src="/assets/zr3_agujero_negro.png" ml={20} />
-            <div
-              style={{
-                width: "33%",
-                height: "90%",
-                position: 'absolute',
-                left: "32.5%",
-                bottom: "11%",
-              }}
-              onClick={() => setOpened(true)}
-            />
+
+            <Popover width={420} position="bottom-start" offset={-200}>
+              <Popover.Target>
+                <div
+                  style={{
+                    width: '33%',
+                    height: '90%',
+                    position: 'absolute',
+                    left: '32.5%',
+                    bottom: '11%',
+                  }}
+                />
+              </Popover.Target>
+              <Popover.Dropdown style={{ background: 'none', border: 0 }}>
+                <Paper shadow="xs" radius="lg" p="md" style={{ background: '#E8E8E8' }}>
+                  <Text size={17} color="black" p="xs" align="justify">
+                    El 21 de junio de 1994 se originó el agujero ZR3-94 y el elemento 115 fue
+                    fundamental para que esto suceda, es la razón principal de una catástrofe
+                    científica ocurrida en Estados Unidos. Bajo efectos de radiación y el intento de
+                    descomposición atómica del elemento, una colisión de partículas generó una
+                    fusión con los diversos materiales de prueba, produciendo un colapso de la
+                    materia a nivel cuántico sobre un nivel de espacio infinitésimo, generando una
+                    fuente de masa gravitatoria posterior, una desestabilización subatómica que
+                    afectaría a los allí presentes.
+                  </Text>
+                </Paper>
+              </Popover.Dropdown>
+            </Popover>
           </div>
         </Box>
         <Box mt={100} mb={100}>
@@ -153,7 +151,7 @@ export default function HomePage() {
           <Box mb={100}>
             <SectionTitle title="EXPERIMENTO BZ-1" fontSize={24} weight={500} align="center" />
 
-            <Box ml={20} style={{ maxWidth: '95%' }}>
+            <Box ml={20} style={{ maxWidth: '92%', margin: '0 auto' }}>
               <Text align="justify" size={20} mb="lg" ml={20}>
                 El experimento BZ-1 consistió en materializar la fuente de combustible de naves
                 extraterrestres recuperadas y poder generar nuevos saberes en función de lo humano.
@@ -177,7 +175,6 @@ export default function HomePage() {
               justifyContent: 'space-around',
               maxWidth: 1025,
               margin: '0 auto 3em auto',
-              border: '1px solid pink',
             }}
           >
             {Object.values(investigators)

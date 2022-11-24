@@ -1,5 +1,5 @@
-import { Box, Center, Container, Grid, HoverCard, Image, Paper, Text } from '@mantine/core';
-import { forwardRef, useEffect } from 'react';
+import { Box, Center, Grid, HoverCard, Image, Paper, Text } from '@mantine/core';
+import { useEffect } from 'react';
 import Layout from '../components/Layout/Layout';
 import { SectionTitle } from '../components/SectionTitle/SectionTitle';
 import { useNavStore } from '../components/store/store';
@@ -43,7 +43,8 @@ export default function Ufos() {
         <Text size={17} color="black" p="xs" align="justify">
           {content.split('\n').map((line) => (
             <div key={line}>
-              {line}<br />
+              {line}
+              <br />
             </div>
           ))}
         </Text>
