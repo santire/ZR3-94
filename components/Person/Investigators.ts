@@ -2,6 +2,13 @@ import { PersonProps } from './Person';
 
 const BASE_PATH = '/assets/investigators';
 const investigators: { [key: string]: PersonProps } = {
+  hassan_navas: {
+    name: 'Hassan Navas',
+    year: '1956',
+    imgSrc: `${BASE_PATH}/hassan_navas.png`,
+    occupation: 'Científico e Investigador',
+    university: 'Universidad de Ciencia y Tecnología de Missouri - Missouri S&T',
+  },
   abel_borrego: {
     name: 'Abel Borrego',
     year: '1964',

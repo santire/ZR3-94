@@ -6,14 +6,14 @@ export default createStyles((theme) => ({
     padding: 0,
   },
   title: {
-    fontSize: 13,
+    fontSize: 10,
     color: theme.white,
     textAlign: 'center',
     textTransform: 'uppercase',
     fontWeight: 800,
   },
   subtitle: {
-    fontSize: 12,
+    fontSize: 11,
     color: theme.white,
     textAlign: 'center',
   },
