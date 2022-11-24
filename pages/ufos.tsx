@@ -42,10 +42,9 @@ export default function Ufos() {
         </Text>
         <Text size={17} color="black" p="xs" align="justify">
           {content.split('\n').map((line) => (
-            <>
-              {line}
-              <br />
-            </>
+            <div key={line}>
+              {line}<br />
+            </div>
           ))}
         </Text>
 

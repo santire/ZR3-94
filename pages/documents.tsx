@@ -1,6 +1,6 @@
 import { Carousel } from '@mantine/carousel';
 import { Box, createStyles, Grid, Image, Text } from '@mantine/core';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Layout from '../components/Layout/Layout';
 import { SectionTitle } from '../components/SectionTitle/SectionTitle';
 import { useNavStore } from '../components/store/store';
@@ -23,6 +23,7 @@ const useStyles = createStyles((_theme, _params, getRef) => ({
 export default function Documents() {
   const setVisited = useNavStore((state) => state.setVisited);
   const { classes } = useStyles();
+  const [largeImgId, setLargeImgId] = useState(1);
 
   useEffect(() => {
     setVisited('documents');
@@ -37,10 +38,21 @@ export default function Documents() {
         }}
       >
         <Box mt={100} mb={100}>
-          <Box mb={100}>
+          <Box mb={60}>
             <SectionTitle title="ZR94 y OVNIS" />
           </Box>
-          <Grid gutter={20} align="center" justify="center">
+          <Box mb={60} ml={20} style={{ maxWidth: '92%', margin: '0 auto' }}>
+            <Text size={20} align="justify">
+              Durante todos estos años, Investigadores de Anomalías Trascendentales fue clasificando
+              los diferentes hallazgos por medio de documentos ocultos, principalmente de Estados
+              Unidos. Los origenes de experimentos, desplazamientos a la velocidad de la luz,
+              contacto con nuevas civilizaciones y más, han sido documentados y resguardados pero es
+              nuestro trabajo trasladar a las personas interesadas toda esta información.
+            </Text>
+          </Box>
+
+          <Image src="/assets/documents_img.png" ml={20} p={0} my={60} />
+          <Grid my={80} gutter={20} align="center" justify="center">
             <Grid.Col span={4}>
               <SectionTitle title="INÉS MARÍA LAFUENTE" fontSize={20} weight={400} />
               <Box ml={20} style={{ maxWidth: '95%' }}>
@@ -67,16 +79,6 @@ export default function Documents() {
               </Box>
             </Grid.Col>
           </Grid>
-          <Image src="/assets/documents_img.png" ml={20} p={0} />
-        </Box>
-        <Box my={80} ml={20}>
-          <Text size={20} align="justify">
-            Durante todos estos años, Investigadores de Anomalías Trascendentales fue clasificando
-            los diferentes hallazgos por medio de documentos ocultos, principalmente de Estados
-            Unidos. Los origenes de experimentos, desplazamientos a la velocidad de la luz, contacto
-            con nuevas civilizaciones y más, han sido documentados y resguardados pero es nuestro
-            trabajo trasladar a las personas interesadas toda esta información.
-          </Text>
         </Box>
         <Box mt={100} mb={100} style={{ background: 'rgba(255,255,255, 0.05)', borderRadius: 50 }}>
           <Carousel
@@ -89,7 +91,7 @@ export default function Documents() {
             classNames={classes}
           >
             {Array.from(Array(3 * 6).keys()).map((i) => (
-              <Carousel.Slide p="xl" key={(i % 6) + 1}>
+              <Carousel.Slide p="xl" key={i} onClick={() => setLargeImgId((i % 6) + 1)}>
                 <Image
                   src={`/assets/documents/${(i % 6) + 1}.png`}
                   width={128}
@@ -103,8 +105,13 @@ export default function Documents() {
             ))}
           </Carousel>
         </Box>
-        <Box style={{ maxWidth: '70%', margin: '0 auto' }}>
-          <Image src="/assets/documents_img2.png" ml={20} mb={100} />
+        <Box style={{ maxWidth: '52%', margin: '0 auto' }}>
+          <Image
+            src={`/assets/documents/large/${largeImgId}.png`}
+            ml={20}
+            mb={100}
+            style={{ border: '1px solid white', borderRadius: 50, overflow: "hidden" }}
+          />
         </Box>
       </Layout>
     </>
