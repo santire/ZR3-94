@@ -1,12 +1,12 @@
-import { Box, Grid, Text, Image, createStyles, Modal, Paper, HoverCard } from '@mantine/core';
 import { Carousel } from '@mantine/carousel';
+import { Box, createStyles, Grid, Image, Modal, Paper, Text } from '@mantine/core';
 import { useEffect, useState } from 'react';
 import Layout from '../components/Layout/Layout';
+import investigators from '../components/Person/Investigators';
 import { Person } from '../components/Person/Person';
 import { SectionTitle } from '../components/SectionTitle/SectionTitle';
-import investigators from '../components/Person/Investigators';
-import { VideoPlayer } from '../components/VideoPlayer/VideoPlayer';
 import { useNavStore } from '../components/store/store';
+import { VideoPlayer } from '../components/VideoPlayer/VideoPlayer';
 
 const useStyles = createStyles((_theme, _params, getRef) => ({
   controls: {
