@@ -133,7 +133,7 @@ export function Navigation() {
           <Image
             src="/assets/zr394.gif"
             radius={9000}
-            style={{ position: 'relative', zIndex: 9999 }}
+            style={{ position: 'relative', zIndex: 9 }}
           />
         </Grid.Col>
         <Grid.Col span={4}>
