@@ -31,6 +31,7 @@
     "@modulz/radix-icons": "^4.0.0",
     "@next/bundle-analyzer": "^12.1.4",
     "@tabler/icons": "^1.92.0",
+    "@vercel/analytics": "^0.1.5",
     "cookies-next": "^2.1.1",
     "dayjs": "^1.11.0",
     "embla-carousel-react": "^7.0.4",

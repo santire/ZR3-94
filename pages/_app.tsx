@@ -1,4 +1,5 @@
 import { AppProps } from 'next/app';
+import { Analytics } from '@vercel/analytics/react';
 import Head from 'next/head';
 import { Global, MantineProvider } from '@mantine/core';
 
@@ -50,6 +51,7 @@ export default function App(props: AppProps) {
           })}
         />
         <Component {...pageProps} />
+        <Analytics />
       </MantineProvider>
     </>
   );
