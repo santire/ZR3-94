@@ -9,18 +9,18 @@ export function Search() {
   const [videoLink, setVideoLink] = useState('');
 
   useEffect(() => {
-    if (value === 'aleph') {
+    if (value.toLowerCase().trim() === 'aleph') {
       window.location.href =
         'https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxiaWJsaWJyb3NwZGZ8Z3g6NWUyOTU3NzQxYmM3NWM1Yg';
     }
 
-    if (value === 'gandalf') {
+    if (value.toLowerCase().trim() === 'gandalf') {
       setOpened(true);
       setValue('');
       setVideoLink('https://www.youtube.com/watch?v=G1IbRujko-A');
     }
 
-    if (value === 'boca') {
+    if (value.toLowerCase().trim() === 'boca') {
       setOpened(true);
       setValue('');
       setVideoLink('https://www.youtube.com/watch?v=r-QnXHnCedI');
