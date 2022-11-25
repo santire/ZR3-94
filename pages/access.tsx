@@ -30,13 +30,11 @@ export default function Access() {
             <VideoPlayer
               linkText=""
               linkTitle=""
-              /* url="https://www.youtube.com/watch?v=eqvOE4I6QRM" */
-              url="https://www.youtube.com/watch?v=ubFq-wV3Eic"
+              url="https://www.youtube.com/watch?v=J4okqgpwXa0"
               width="100%"
               height="604px"
               controls={false}
               style={{ padding: 0, margin: 0 }}
-              muted
             />
           </Box>
         </Box>
