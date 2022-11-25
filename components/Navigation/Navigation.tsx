@@ -182,7 +182,7 @@ export function Navigation() {
                 }
               >
                 <LinkButton
-                  title="TESTIMONIOS"
+                  title="TESTIMONIO"
                   path="/testimonials"
                   locked={isTransforming || !pageAccess.testimonials}
                 />

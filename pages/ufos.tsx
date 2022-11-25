@@ -65,7 +65,7 @@ export default function Ufos() {
       >
         <Box mt={100} mb={100}>
           <Box mb={60}>
-            <SectionTitle title="ZR94 y OVNIS" />
+            <SectionTitle title="ZR3-94 y OVNIS" />
           </Box>
           <Box ml={20} mb={60} style={{ maxWidth: '92%', margin: '0 auto' }}>
             <Text align="justify" size={20}>

@@ -14,7 +14,7 @@ export default function Access() {
       >
         <Box mt={100} mb={100}>
           <Box mb={60}>
-            <SectionTitle title="ACCESSO AL ZR3-94" />
+            <SectionTitle title="ACCESO AL ZR3-94" />
           </Box>
 
           <Box ml={20} mb={60} style={{ maxWidth: '95%' }}>
