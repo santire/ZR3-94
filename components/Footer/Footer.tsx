@@ -1,6 +1,8 @@
 import { Box, Center, Divider, Group, Modal, Text, Tooltip } from '@mantine/core';
+import { useRouter } from 'next/router';
 import { Fragment, useState } from 'react';
 import useStyles from './Footer.styles';
+import { ViewCount } from './ViewCount';
 
 interface CustomLinkProps {
   value: string;
@@ -310,6 +312,7 @@ const Frecuentes = () => (
 export function Footer() {
   const { classes } = useStyles();
   const [opened, setOpened] = useState('none');
+  const router = useRouter();
 
   const links = [
     { value: 'Sobre Nosotros', href: 'nosotros' },
@@ -390,9 +393,7 @@ export function Footer() {
               ))}
             </Group>
             <Divider orientation="vertical" color="#F5F5F5" />
-            <Text className={classes.text}>
-              VISITAS: <span className={classes.views}>1248</span>
-            </Text>
+            <ViewCount slug={router.pathname.split('/').pop() || 'root'} />
           </Group>
         </Center>
       </Box>
