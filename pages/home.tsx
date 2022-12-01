@@ -57,6 +57,7 @@ export default function HomePage() {
                     position: 'absolute',
                     left: '32.5%',
                     bottom: '11%',
+                    cursor: 'pointer',
                   }}
                 />
               </Popover.Target>
@@ -148,9 +149,10 @@ export default function HomePage() {
           </Box>
         </Box>
         <Box mt={100} mb={100}>
-          <Box mb={100}>
-            <SectionTitle title="EXPERIMENTO BZ-1" fontSize={24} weight={500} align="center" />
-
+          <Box mb={70}>
+            <Box mb={60}>
+              <SectionTitle title="EXPERIMENTO BZ-1" fontSize={24} weight={500} align="center" />
+            </Box>
             <Box ml={20} style={{ maxWidth: '92%', margin: '0 auto' }}>
               <Text align="justify" size={20} mb="lg" ml={20}>
                 El experimento BZ-1 consistió en materializar la fuente de combustible de naves

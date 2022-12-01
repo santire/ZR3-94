@@ -39,7 +39,7 @@ export default function Documents() {
       >
         <Box mt={100} mb={100}>
           <Box mb={60}>
-            <SectionTitle title="ZR94 y OVNIS" />
+            <SectionTitle title="DOCUMENTOS CLASIFICADOS" />
           </Box>
           <Box mb={60} ml={20} style={{ maxWidth: '92%', margin: '0 auto' }}>
             <Text size={20} align="justify">

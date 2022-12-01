@@ -73,7 +73,7 @@ export function Navigation() {
                 }
               >
                 <LinkButton
-                  title="¿QUÉ ES EL ZR3-94?"
+                  title="¿QUÉ ES EL ZR3&#8209;94?"
                   path="/home"
                   locked={isTransforming || !pageAccess.home}
                 />
@@ -96,7 +96,7 @@ export function Navigation() {
                 }
               >
                 <LinkButton
-                  title="ZR3-94 Y OVNIS"
+                  title="ZR3&#8209;94 Y OVNIS"
                   path="/ufos"
                   locked={isTransforming || !pageAccess.ufos}
                 />
@@ -205,7 +205,7 @@ export function Navigation() {
                 }
               >
                 <LinkButton
-                  title="ACCESO AL ZR3-94"
+                  title="ACCESO AL ZR3&#8209;94"
                   path="/access"
                   locked={isTransforming || !pageAccess.access}
                 />
