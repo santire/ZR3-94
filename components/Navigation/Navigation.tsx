@@ -90,7 +90,7 @@ export function Navigation() {
                         display: 'flex',
                         justifyContent: 'center',
                         position: 'relative',
-                        transform: 'translateX(440px) translateY(30px) rotate(-60deg)',
+                        transform: 'translateX(440px) translateY(-60px) rotate(-60deg)',
                         transition: 'ease-in 10s',
                       }
                 }
@@ -199,7 +199,7 @@ export function Navigation() {
                         display: 'flex',
                         justifyContent: 'center',
                         position: 'relative',
-                        transform: 'translateX(-440px) translateY(30px) rotate(60deg)',
+                        transform: 'translateX(-440px) translateY(-60px) rotate(60deg)',
                         transition: 'ease-in 10s',
                       }
                 }
