@@ -41,7 +41,7 @@ export default function LHomePageandingPage() {
 
   const startRandomDecay = () => {
     setTransformStartTime(new Date().getTime());
-    const mean_minutes = 30;
+    const mean_minutes = 6000;
     const deviation = 1.4;
     const decayPeriod = Math.ceil(rand_nd(mean_minutes, deviation) * 60 * 1000);
     const decayMins = decayPeriod / (60 * 1000);
